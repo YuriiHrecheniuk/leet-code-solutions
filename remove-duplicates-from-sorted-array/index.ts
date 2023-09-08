@@ -1,14 +1,19 @@
 export function removeDuplicates(nums: number[]): number {
-  let uniqueNumsCount = 0;
   let nonUniqueNumsCount = 0;
+  let lastFoundUniqueNum: number;
 
-  for (let numIndex = 1, lastUniqueNum = nums[0]; numIndex < nums.length; numIndex++) {
+  for (let numIndex = 0; numIndex < nums.length; numIndex++) {
     const num = nums[numIndex];
 
-    if (num === lastUniqueNum) {
-      nums[numIndex] = 
+    nums[numIndex] = undefined;
+
+    if (lastFoundUniqueNum === num) {
+      nonUniqueNumsCount++;
+    } else {
+      lastFoundUniqueNum = num;
+      nums[numIndex - nonUniqueNumsCount] = num;
     }
   }
 
-  return uniqueNumsCount;
+  return nums.length - nonUniqueNumsCount;
 }
