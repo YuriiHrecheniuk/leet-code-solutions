@@ -1,4 +1,4 @@
-import {majorityElement} from ".";
+import {majorityElement} from "./index";
 
 describe('majority-element', () => {
     test('first test', () => {

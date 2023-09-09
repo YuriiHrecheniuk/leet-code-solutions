@@ -1,4 +1,4 @@
-import {removeDuplicates} from '.'
+import {removeDuplicates} from './index'
 
 describe('remove-duplicates-from-sorted-array-2', () => {
     it('should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively', () => {
