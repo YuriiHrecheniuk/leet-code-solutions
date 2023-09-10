@@ -1,4 +1,4 @@
-export function maxProfit(prices: number[]): number {
+export function squareMaxProfit(prices: number[]): number {
     let maxProfit = 0;
 
     for (let i = 0; i < prices.length; i++) {
@@ -14,3 +14,23 @@ export function maxProfit(prices: number[]): number {
     return maxProfit;
 }
 
+export function maxProfit(prices: number[]): number {
+    let [minPrice] = prices;
+    let maxProfit = 0;
+
+    for (let i = 1; i < prices.length; i++) {
+        const price = prices[i];
+
+        const profit = price - minPrice;
+
+        if (profit > maxProfit) {
+            maxProfit = profit;
+        }
+
+        if (price < minPrice) {
+            minPrice = price;
+        }
+    }
+
+    return maxProfit;
+}
