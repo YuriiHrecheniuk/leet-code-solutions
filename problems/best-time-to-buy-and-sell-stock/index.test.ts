@@ -1,4 +1,4 @@
-import {maxProfit} from "./index";
+import {maxProfit} from "./";
 
 describe('best-time-to-buy-and-sell-stock', () => {
     test('Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.', () => {
