@@ -34,12 +34,11 @@ describe('55', () => {
   });
 
   test('5th test', () => {
-    const nums = [5, 9, 3, 2, 1, 0, 2, 3, 3, 1, 0,0];
+    const nums = [5, 9, 3, 2, 1, 0, 2, 3, 3, 1, 0, 0];
 
     const obj = {
-      "foo": "bar",
-      "baz": "a"
-    }
+      foo: 'bar',
+    };
 
     const result = canJump(nums);
 
