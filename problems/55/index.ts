@@ -1,13 +1,15 @@
 export function canJump(nums: number[]): boolean {
-  const jumps: number[] = [];
+  const prevJumps: number[] = [];
 
   const lastIndex = nums.length - 1;
 
-  for (let index = 0; index < lastIndex;) {
-    const jump = nums[index];
+  const passedIndexes = new Array<boolean>(nums.length);
 
-    if (jump === 0) {
-      let prevJump = jumps.pop();
+  for (let index = 0; index < lastIndex;) {
+    const currentJump = nums[index];
+
+    if (currentJump === 0 || passedIndexes[index]) {
+      let prevJump = prevJumps.pop();
 
       if (!prevJump) {
         return false;
@@ -16,21 +18,23 @@ export function canJump(nums: number[]): boolean {
       while (prevJump === 1) {
         index -= prevJump;
 
-        prevJump = jumps.pop();
+        prevJump = prevJumps.pop();
 
         if (!prevJump) {
           return false;
         }
       }
 
-      jumps.push(prevJump - 1);
+      prevJumps.push(prevJump - 1);
       index--;
 
       continue;
     }
 
-    index += jump;
-    jumps.push(jump)
+    passedIndexes[index] = true;
+
+    index += currentJump;
+    prevJumps.push(currentJump)
   }
 
   return true;
